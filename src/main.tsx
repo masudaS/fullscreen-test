@@ -1,8 +1,8 @@
 import React, { useRef } from "react"
 import ReactDOM from "react-dom"
 
-const btn = document.getElementById("btn") as HTMLButtonElement
-btn.onclick = () => {
+const fullscreenBtn = document.getElementById("fullscreen") as HTMLButtonElement
+fullscreenBtn.onclick = () => {
   const rect = document.getElementById("rect") as any
 
   console.log(typeof rect.requestFullscreen)
@@ -13,6 +13,21 @@ btn.onclick = () => {
   console.log(typeof rect.webkitRequestFullscreen)
   if (typeof rect.webkitRequestFullscreen === "function") {
     rect.webkitRequestFullscreen()
+  }
+}
+
+const documentFullscreenBtn = document.getElementById("document-fullscreen") as HTMLButtonElement
+documentFullscreenBtn.onclick = () => {
+  const doc = document.documentElement as any;
+
+  console.log(typeof doc.requestFullscreen)
+  if (typeof doc.requestFullscreen === "function") {
+    doc.requestFullscreen()
+  }
+
+  console.log(typeof doc.webkitRequestFullscreen)
+  if (typeof doc.webkitRequestFullscreen === "function") {
+    doc.webkitRequestFullscreen()
   }
 }
 
@@ -30,6 +45,7 @@ const App: React.VFC = () => {
       rect.webkitRequestFullscreen()
     }
   }
+
 
   return (
     <div>

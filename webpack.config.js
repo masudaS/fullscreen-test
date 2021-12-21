@@ -5,8 +5,8 @@ const src = path.resolve(__dirname, "src");
 const dist = path.resolve(__dirname, "dist");
 
 module.exports = {
-  mode: "development",
-  entry: path.join(src, "main.ts"),
+  mode: "production",
+  entry: path.join(src, "main.tsx"),
   output: {
     path: dist,
     filename: "bundle.js",
@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         loader: "ts-loader"
       },
@@ -27,5 +27,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(src, "index.html")
     }),
-  ]
+  ],
+  performance: {
+    hints: false,
+  },
 }

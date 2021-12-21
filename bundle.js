@@ -16,7 +16,7 @@
   \*********************/
 /***/ (() => {
 
-eval("\nconst btn = document.getElementById(\"btn\");\nbtn.onclick = () => {\n    const rect = document.getElementById(\"rect\");\n    console.log(typeof rect.requestFullscreen);\n    if (typeof rect.requestFullscreen) {\n        rect.requestFullscreen();\n    }\n    console.log(typeof rect.webkitRequestFullscreen);\n    if (typeof rect.webkitRequestFullscreen) {\n        rect.webkitRequestFullscreen();\n    }\n};\n\n\n//# sourceURL=webpack://fullscreen-test/./src/main.ts?");
+eval("\nconst btn = document.getElementById(\"btn\");\nbtn.onclick = () => {\n    const rect = document.getElementById(\"rect\");\n    console.log(typeof rect.requestFullscreen);\n    if (typeof rect.requestFullscreen === \"function\") {\n        rect.requestFullscreen();\n    }\n    console.log(typeof rect.webkitRequestFullscreen);\n    if (typeof rect.webkitRequestFullscreen === \"function\") {\n        rect.webkitRequestFullscreen();\n    }\n};\n\n\n//# sourceURL=webpack://fullscreen-test/./src/main.ts?");
 
 /***/ })
 
